@@ -1,4 +1,5 @@
 import { neon } from '@neondatabase/serverless';
+import SummarySeason from './components/SummarySeason/SummarySeason';
 
 export default function Home() {
 
@@ -38,11 +39,12 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1>Building site ...</h1>
+        <SummarySeason />
         <p>Site Data:</p>
         <ul>
           {page()}
         </ul>
+        <h1>Building site ...</h1>
       </main>
     </div>
   );

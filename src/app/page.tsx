@@ -3,7 +3,7 @@ import SummarySeason from './components/SummarySeason/SummarySeason';
 
 const baseUrl:string = process.env.DATABASE_URL || '';
 
-export async function getData() {
+async function getData() {
   const sql = neon(baseUrl);
   const response = await sql`SELECT * FROM stats`;
   return response;

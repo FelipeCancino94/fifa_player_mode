@@ -15,13 +15,14 @@ export default async function Home() {
   const actualSeason = data[data.length - 1];
   return <>
     <SummarySeason
+      team={ actualSeason.team }
       goals={ actualSeason.goals }
       assists={ actualSeason.assists }
       games={ actualSeason.games } />
-    {
+    {/* {
       data.map((item:any) => (
         <li key={item.id}>{item.team}</li>
       ))
-    }
+    } */}
   </>
 }

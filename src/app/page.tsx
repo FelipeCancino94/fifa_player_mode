@@ -1,51 +1,27 @@
 import { neon } from '@neondatabase/serverless';
 import SummarySeason from './components/SummarySeason/SummarySeason';
 
-export default function Home() {
+const baseUrl:string = process.env.DATABASE_URL || '';
 
-  interface Stats {
-    id: number,
-    assists: number,
-    games: number,
-    goals: number,
-    player_month: number,
-    player_week: number,
-    player_year: boolean,
-    red_cards: number,
-    season: string,
-    team: string,
-    trophies: object,
-    yellow_cards: number
-  }
+export async function getData() {
+  const sql = neon(baseUrl);
+  const response = await sql`SELECT * FROM stats`;
+  return response;
+}
 
-  const baseUrl:string = process.env.DATABASE_URL || '';
-
-  async function getData() {
-    const sql = neon(baseUrl);
-    const response = await sql`SELECT * FROM stats`;
-    return response;
-  }
-
-  const page = async () => {
-    const data:any = await getData();
-    console.log("tipo de dato: ");
-    console.log(data);
-    const result = data.map((item:any) => (
-      <li key={item.id}>{item.team}</li>
-    ))
-    return result;
-  }
-
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <SummarySeason />
-        <p>Site Data:</p>
-        <ul>
-          {page()}
-        </ul>
-        <h1>Building site ...</h1>
-      </main>
-    </div>
-  );
+export default async function Home() {
+  const data = await getData();
+  console.log(data);
+  const actualSeason = data[data.length - 1];
+  return <>
+    <SummarySeason
+      goals={ actualSeason.goals }
+      assists={ actualSeason.assists }
+      games={ actualSeason.games } />
+    {
+      data.map((item:any) => (
+        <li key={item.id}>{item.team}</li>
+      ))
+    }
+  </>
 }

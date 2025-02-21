@@ -49,7 +49,9 @@ const GlobalStats: React.FC<GlobalStatsProps> = ({ stats }) => {
     const sumPlayerOfTheYear: number = (() => {
         let playerOfTheYearLength = 0;
         stats.forEach((item) => {
-            item.player_year ? playerOfTheYearLength += 1 : playerOfTheYearLength += 0;
+            if (item.player_year) {
+                playerOfTheYearLength += 1
+            }
         });
         return playerOfTheYearLength;
     })();

@@ -1,0 +1,16 @@
+.button-menu.close-icon .line-hamb-menu {
+    position: absolute;
+}
+.button-menu.close-icon .line-hamb-menu:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+.button-menu.close-icon .line-hamb-menu:nth-child(2) {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+.button-menu.close-icon .line-hamb-menu:nth-child(3) {
+    opacity: 0;
+}

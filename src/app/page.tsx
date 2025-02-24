@@ -33,6 +33,7 @@ export default async function Home() {
 
   const actualSeason = data[data.length - 1];
   const colorPrimary:string = actualSeason.team_colors.split(',')[0];
+  const colorSecondary:string = actualSeason.team_colors.split(',')[1];
 
   const statsList: StatsProps[] = data.map(item => ({
     assists: item.assists,
@@ -52,7 +53,7 @@ export default async function Home() {
 
   const styles = {
     backgroundColor: colorPrimary,
-    color: '#fff',
+    color: colorSecondary,
   }
 
   return <>

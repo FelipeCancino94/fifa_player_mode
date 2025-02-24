@@ -60,40 +60,40 @@ const GlobalStats: React.FC<GlobalStatsProps> = ({ stats }) => {
         <div className="global-states">
             <h3 className="text-3xl text-center py-8">Estadisticas globales</h3>
             <div className="stats grid grid-cols-3 gap-4 px-4">
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ allGoals }</h4>
                     <p className="item-stat-label text-center leading-none">Goles</p>
                     <small className="text-center block">media: { (allGoals / allGames).toFixed(2) }</small>
                 </div>
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ allAssists }</h4>
                     <p className="item-stat-label text-center leading-none">Asistencias</p>
                 </div>
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ allGames }</h4>
                     <p className="item-stat-label text-center leading-none">Partidos</p>
                 </div>
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ sumTrophies }</h4>
                     <p className="item-stat-label text-center leading-none">Trofeos</p>
                 </div>
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ allRedCards }</h4>
                     <p className="item-stat-label text-center leading-none">Tarjetas rojas</p>
                 </div>
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ allYellowCards }</h4>
                     <p className="item-stat-label text-center leading-none">Tarjetas amarillas</p>
                 </div>
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ teamOfTheWeek }</h4>
                     <p className="item-stat-label text-center leading-none">Equipo de la semana</p>
                 </div>
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ playerMonth }</h4>
                     <p className="item-stat-label text-center leading-none">Jugador del mes</p>
                 </div>
-                <div className="item-stat p-4 bg-neutral-900/30 rounded-md">
+                <div className="item-stat p-4 bg-neutral-900/10 rounded-md">
                     <h4 className="item-stat-value text-center text-4xl">{ sumPlayerOfTheYear }</h4>
                     <p className="item-stat-label text-center leading-none">Jugador del año</p>
                 </div>

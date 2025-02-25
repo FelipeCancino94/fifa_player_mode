@@ -1,0 +1,47 @@
+.season .season-heading::marker {
+    content: none;
+}
+
+.season .season-heading h4 strong {
+    position: relative;
+}
+
+.season .season-heading h4 strong:before {
+    content: "";
+    width: 15px;
+    height: 2px;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: rotate(45deg);
+    transition: all .3s ease-in-out;
+}
+
+.season .season-heading h4 strong:after {
+    content: "";
+    width: 15px;
+    height: 2px;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: rotate(-45deg);
+    transition: all .3s ease-in-out;
+}
+
+.season[open] .season-heading h4 strong:before {
+    transform: rotate(-45deg);
+}
+
+.season[open] .season-heading h4 strong:after {
+    transform: rotate(45deg);
+}
+
+.season-heading-logo {
+    position: absolute;
+    top: -20px;
+    left: -40px;
+    width: 50%;
+    filter: grayscale(1) opacity(.5);
+}

@@ -21,10 +21,13 @@ export function MainMenu() {
             <div className={ `main-menu fixed top-0 w-full h-screen bg-neutral-900/90 p-16 flex justify-center transition-all z-10 ${opened ? 'left-0' : '-left-full'}` }>
                 <ul>
                     <li>
-                        <Link href="/" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Home</Link>
+                        <Link href="/" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Inicio</Link>
                     </li>
                     <li>
-                        <Link href="/seasons" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Seasons</Link>
+                        <Link href="/seasons" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Temporadas</Link>
+                    </li>
+                    <li>
+                        <Link href="/end-season" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Finalizar una temporada</Link>
                     </li>
                 </ul>
             </div>

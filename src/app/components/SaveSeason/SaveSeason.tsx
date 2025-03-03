@@ -21,8 +21,8 @@ export default async function SaveSeason(formData: FormData) {
     try {
         await sql(`INSERT INTO stats (season, team, goals, assists, games, red_cards, yellow_cards, team_week, player_month, player_year, trophies, team_colors) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`, [season, team, goals, assists, games, red_cards, yellow_cards, team_week, player_month, player_year, trophies, team_colors]);
         return true;
-    } catch(error:any) {
-        console.error(error.message);
+    } catch(error:unknown) {
+        console.error(error);
         return false;
     }
 }

@@ -65,11 +65,6 @@ export default async function Home() {
         games={ actualSeason.games }
         season={ actualSeason.season } />
       <GlobalStats stats={ statsList }/>
-      {/* {
-        data.map((item:any) => (
-          <li key={item.id}>{item.team}</li>
-        ))
-      } */}
     </div>
   </>
 }

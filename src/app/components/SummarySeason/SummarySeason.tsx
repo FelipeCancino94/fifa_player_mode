@@ -8,7 +8,7 @@ interface SummarySeasonProps {
 }
 
 
-const SummarySeason: React.FC<SummarySeasonProps> = ({ team, goals, assists, games, season, image }) => {
+const SummarySeason: React.FC<SummarySeasonProps> = ({ goals, assists, games, season, image }) => {
   return (
     <div className="summary-season flex flex-2 items-center justify-between p-4 border-b-4 border-dashed border-b-neutral-900/40 pt-16">
       <div>

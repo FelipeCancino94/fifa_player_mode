@@ -4,15 +4,15 @@ interface SummarySeasonProps {
   games: number,
   goals: number,
   season: string,
+  image: string
 }
 
 
-const SummarySeason: React.FC<SummarySeasonProps> = ({ team, goals, assists, games, season }) => {
-  const teamURL = team.replaceAll(' ', '-').toLowerCase();
+const SummarySeason: React.FC<SummarySeasonProps> = ({ goals, assists, games, season, image }) => {
   return (
     <div className="summary-season flex flex-2 items-center justify-between p-4 border-b-4 border-dashed border-b-neutral-900/40 pt-16">
       <div>
-        <img className="w-32" src={ './team-' + teamURL + '.png' } alt="Team logo" title="montpellier hsc"  />
+        <img className="w-32" src={ image } alt="Team logo" title="montpellier hsc"  />
       </div>
       <div className="w-40">
         <p className="flex justify-between items-end">

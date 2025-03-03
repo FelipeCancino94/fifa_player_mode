@@ -16,7 +16,8 @@ interface StatsProps {
   team_colors: string,
   trophies: string,
   yellow_cards: number,
-  team_week: number
+  team_week: number,
+  image_team: string
 }
 
 async function getData() {
@@ -46,17 +47,13 @@ export default async function Page() {
     team_colors: item.team_colors,
     trophies: item.trophies,
     yellow_cards: item.yellow_cards,
-    team_week: item.team_week
+    team_week: item.team_week,
+    image_team: item.image_team
   }));
 
   const styles = {
     backgroundColor: colorPrimary,
     color: colorSecondary,
-  }
-
-  const imageUrl = (team:string) => {
-    const teamUrl = team.replaceAll(' ', '-').toLowerCase();
-    return `./team-${ teamUrl }.png`;
   }
 
   return (
@@ -68,14 +65,14 @@ export default async function Page() {
             statsList.map((season) => (
               <details key={ season.id } className="season">
                 <summary className="season-heading bg-neutral-950 rounded-md py-4 px-8 mt-2 relative overflow-hidden">
-                  <img className="season-heading-logo" src={ imageUrl(season.team) } alt="Team logo" title={ season.team } />
+                  <img className="season-heading-logo" src={ season.image_team } alt="Team logo" title={ season.team } />
                   <h4 className="text-xl flex justify-between w-full pl-32">
                     <span className='text-neutral-50'>{ season.season }</span>
                     <strong></strong>
                   </h4>
                 </summary>
                 <div style={{ background: season.team_colors.split(',')[0], color: season.team_colors.split(',')[1] }} className="season-body -mt-[20px] transition-all rounded-b-md">
-                  <img className="w-24 mx-auto pt-4 mt-4 mb-3" src={ imageUrl(season.team) } alt="Team logo" title={ season.team } />
+                  <img className="w-24 mx-auto pt-4 mt-4 mb-3" src={ season.image_team } alt="Team logo" title={ season.team } />
                   <p className='text-center flex justify-between py-2 px-4 bg-neutral-900/10'>
                     <span>{ season.goals } Goles</span>
                     <span>{ season.assists } Asistencias</span>

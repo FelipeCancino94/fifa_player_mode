@@ -1,5 +1,6 @@
 "use server"
 import { neon } from "@neondatabase/serverless";
+import clearCache from '../../api/invalidate-cache';
 
 export default async function SaveSeason(formData: FormData) {
     const baseUrl:string = process.env.DATABASE_URL || '';
@@ -20,6 +21,7 @@ export default async function SaveSeason(formData: FormData) {
 
     try {
         await sql(`INSERT INTO stats (season, team, goals, assists, games, red_cards, yellow_cards, team_week, player_month, player_year, trophies, team_colors) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)`, [season, team, goals, assists, games, red_cards, yellow_cards, team_week, player_month, player_year, trophies, team_colors]);
+        clearCache();
         return true;
     } catch(error:unknown) {
         console.error(error);

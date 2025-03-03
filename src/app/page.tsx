@@ -17,7 +17,8 @@ interface StatsProps {
   team_colors: string,
   trophies: string,
   yellow_cards: number,
-  team_week: number
+  team_week: number,
+  image_team: string
 }
 
 async function getData() {
@@ -47,7 +48,8 @@ export default async function Home() {
     team_colors: item.team_colors,
     trophies: item.trophies,
     yellow_cards: item.yellow_cards,
-    team_week: item.team_week
+    team_week: item.team_week,
+    image_team: item.image_team
   }));
 
   const styles = {
@@ -62,7 +64,8 @@ export default async function Home() {
         goals={ actualSeason.goals }
         assists={ actualSeason.assists }
         games={ actualSeason.games }
-        season={ actualSeason.season } />
+        season={ actualSeason.season }
+        image={ actualSeason.image_team } />
       <GlobalStats stats={ statsList }/>
     </div>
   </>

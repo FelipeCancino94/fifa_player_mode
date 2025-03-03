@@ -51,6 +51,9 @@ export default function Page() {
                     <input className={ styles } type="text" placeholder="Trofeos" name="trophies" />
                 </div>
                 <div className="flex justify-between gap-4">
+                    <input className={ styles } type="file" placeholder="Imagen de equipo" name="image_team" accept="image/png, image/jpeg" />
+                </div>
+                <div className="flex justify-between gap-4">
                     <button className={ `${styles} bg-white !text-sky-700 uppercase font-bold hover:bg-transparent hover:!text-white` } type="submit" name="send">
                         Finalizar temporada
                     </button>

@@ -15,7 +15,8 @@ interface StatsProps {
     team_colors: string,
     trophies: string,
     yellow_cards: number,
-    team_week: number
+    team_week: number,
+    image_team: string
 }
 
 

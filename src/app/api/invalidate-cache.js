@@ -16,10 +16,10 @@ export default async function clearCache(req, res) {
       },
     });
   
-    if (response.ok) {
-      return res.status(200).json({ message: 'Cache invalidated successfully' });
+    if (response) {
+      return 'Cache cleaned successfully';
     } else {
-      return res.status(response.status).json({ error: await response.text() });
+      return 'Error in claned cache';
     }
   }
   

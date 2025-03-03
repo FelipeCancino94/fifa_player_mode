@@ -28,7 +28,6 @@ async function getData() {
 
 export default async function Page() {
   const data = await getData();
-  console.log(data);
 
   const actualSeason = data[data.length - 1];
   const colorPrimary:string = actualSeason.team_colors.split(',')[0];

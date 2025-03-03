@@ -1,4 +1,3 @@
-export const fetchCache = 'force-no-store';
 import { neon } from '@neondatabase/serverless';
 import SummarySeason from './components/SummarySeason/SummarySeason';
 import GlobalStats from './components/GlobalStats/GlobalStats';

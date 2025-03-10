@@ -24,10 +24,13 @@ export function MainMenu() {
                         <Link href="/" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Inicio</Link>
                     </li>
                     <li>
-                        <Link href="/seasons" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Temporadas</Link>
+                        <Link href="/pages/player-mode" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Player mode</Link>
                     </li>
                     <li>
-                        <Link href="/end-season" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Finalizar una temporada</Link>
+                        <Link href="/pages/player-mode/seasons" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Temporadas</Link>
+                    </li>
+                    <li>
+                        <Link href="/pages/player-mode/end-season" className="text-neutral-50 text-5xl text-center block underline my-8" onClick={toggleMenu}>Finalizar una temporada</Link>
                     </li>
                 </ul>
             </div>

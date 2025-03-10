@@ -1,72 +1,19 @@
-import { neon } from '@neondatabase/serverless';
-import SummarySeason from './components/SummarySeason/SummarySeason';
-import GlobalStats from './components/GlobalStats/GlobalStats';
+"use client"
 
-const baseUrl:string = process.env.DATABASE_URL || '';
+import Link from "next/link";
+import './home.css';
 
-interface StatsProps {
-  assists: number,
-  games: number,
-  goals: number,
-  id: number,
-  player_month: number,
-  player_year: boolean,
-  red_cards: number,
-  season: string,
-  team: string,
-  team_colors: string,
-  trophies: string,
-  yellow_cards: number,
-  team_week: number,
-  image_team: string
-}
-
-async function getData() {
-  const sql = neon(baseUrl);
-  const response = await sql`SELECT * FROM stats`;
-  const orderedData = response.sort((a, b) => a.id - b.id);
-  return orderedData;
-}
-
-export default async function Home() {
-  const data = await getData();
-
-  const actualSeason = data[data.length - 1];
-  const colorPrimary:string = actualSeason.team_colors.split(',')[0];
-  const colorSecondary:string = actualSeason.team_colors.split(',')[1];
-
-  const statsList: StatsProps[] = data.map(item => ({
-    assists: item.assists,
-    games: item.games,
-    goals: item.goals,
-    id: item.id,
-    player_month: item.player_month,
-    player_year: item.player_year,
-    red_cards: item.red_cards,
-    season: item.season,
-    team: item.team,
-    team_colors: item.team_colors,
-    trophies: item.trophies,
-    yellow_cards: item.yellow_cards,
-    team_week: item.team_week,
-    image_team: item.image_team
-  }));
-
-  const styles = {
-    backgroundColor: colorPrimary,
-    color: colorSecondary,
-  }
-
+export default function Home() {
   return <>
-    <div style={ styles } className='h-screen'>
-      <SummarySeason
-        team={ actualSeason.team }
-        goals={ actualSeason.goals }
-        assists={ actualSeason.assists }
-        games={ actualSeason.games }
-        season={ actualSeason.season }
-        image={ actualSeason.image_team } />
-      <GlobalStats stats={ statsList }/>
+    <div className='h-screen'>
+      <ul className="flex justify-between items-center h-screen overflow-hidden">
+        <li className="h-screen bg-sky-700 flex justify-center items-center w-1/2 relative overflow-hidden">
+          <Link href="/pages/manager-mode" className="text-neutral-50 text-7xl text-right block absolute bottom-0 right-0 w-96 p-8 leading-none font-black drop-shadow-xl">Manager mode</Link>
+        </li>
+        <li className="h-screen bg-red-800 flex justify-center items-center w-1/2 relative">
+          <Link href="/pages/player-mode" className="text-neutral-50 text-7xl text-left block absolute top-0 left-0 w-96 p-8 leading-none font-black drop-shadow-xl">Player mode</Link>
+        </li>
+      </ul>
     </div>
   </>
 }

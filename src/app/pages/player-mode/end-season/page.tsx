@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import SaveSeason from "../components/SaveSeason/SaveSeason";
+import SaveSeason from "../../../components/SaveSeason/SaveSeason";
 import Link from "next/link";
 
 export default function Page() {

@@ -1,0 +1,11 @@
+div:not(.main-menu) ul li:first-child {
+    background-image: url(../../public/manager-mode.jpg);
+    background-size: cover;
+    background-position: 85% 0;
+}
+
+div:not(.main-menu) ul li:last-child {
+    background-image: url(../../public/player-mode.jpg);
+    background-size: cover;
+    background-position: top;
+}

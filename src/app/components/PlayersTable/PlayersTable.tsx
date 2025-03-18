@@ -5,6 +5,7 @@ interface PlayersTableProps {
 interface playerProps {
     id:number,
     name:string,
+    area: string,
     position:string,
     games:number,
     wins:number,
@@ -21,14 +22,14 @@ interface playerProps {
     sold:boolean
 }
 
-function getPositionColor(position:string) {
-    if (position === 'POR') {
+function getPositionColor(area:string) {
+    if (area === 'POR') {
         return {borderColor: 'rgb(79, 70, 229)'};
-    } else if (position === 'DEF') {
+    } else if (area === 'DEF') {
         return {borderColor: 'rgb(245, 158, 11)'};
-    } else if (position === 'MED') {
+    } else if (area === 'MED') {
         return {borderColor: 'rgb(34, 197, 94)'};
-    } else if (position === 'DEL') {
+    } else if (area === 'DEL') {
         return {borderColor: 'rgb(14, 165, 233)'};
     } else {
         return {borderColor: 'rgb(255, 255, 255)'};
@@ -75,6 +76,7 @@ const PlayersTable:React.FC<PlayersTableProps> = ({ data }) => {
             <div className="player-table mt-4">
                 <div className="row grid py-2 border-l-8 border-neutral-50">
                     <div className='text-left pl-4'>Nombre</div>
+                    <div className='text-center'>POS</div>
                     <div className='text-center'>PJ</div>
                     <div className='text-center'>V</div>
                     <div className='text-center'>E</div>
@@ -88,8 +90,9 @@ const PlayersTable:React.FC<PlayersTableProps> = ({ data }) => {
                 </div>
                 {
                     data.map((player:playerProps) => (
-                        <div className={`row grid py-2 border-l-8`} key={ player.id } style={ getPositionColor(player.position) }>
+                        <div className={`row grid py-2 border-l-8`} key={ player.id } style={ getPositionColor(player.area) }>
                             <div className='text-left pl-4'>{ player.name }</div>
+                            <div className='text-center'>{ player.position }</div>
                             <div className='text-center'>{ player.games }</div>
                             <div className='text-center'>{ player.wins }</div>
                             <div className='text-center'>{ player.draws }</div>

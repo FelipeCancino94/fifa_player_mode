@@ -1,5 +1,5 @@
 .player-table .row {
-    grid-template-columns: 1fr repeat(10, 50px);
+    grid-template-columns: 1fr repeat(11, 50px);
 }
 
 .player-table .row:nth-child(even) {

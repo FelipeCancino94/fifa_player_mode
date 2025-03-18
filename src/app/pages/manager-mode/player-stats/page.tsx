@@ -7,6 +7,7 @@ const baseUrl:string = process.env.DATABASE_URL || '';
 interface playerProps {
     id:number,
     name:string,
+    area: string,
     position:string,
     games:number,
     wins:number,
@@ -34,6 +35,7 @@ export default async function Page() {
     const playerList:playerProps[] = data.map(player => ({
         id: player.id,
         name: player.name,
+        area: player.area,
         position: player.position,
         games: player.games,
         wins: player.wins,

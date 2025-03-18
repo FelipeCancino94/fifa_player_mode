@@ -1,3 +1,7 @@
+"use client"
+
+import SchoolIcon from '@mui/icons-material/School';
+
 interface PlayersTableProps {
     data: playerProps[];
 }
@@ -74,7 +78,7 @@ const PlayersTable:React.FC<PlayersTableProps> = ({ data }) => {
                 </div>
             </div>
             <div className="player-table mt-4">
-                <div className="row grid py-2 border-l-8 border-neutral-50">
+                <div className="row grid py-2 border-l-8 border-neutral-50 bg-neutral-50/25">
                     <div className='text-left pl-4'>Nombre</div>
                     <div className='text-center'>POS</div>
                     <div className='text-center'>PJ</div>
@@ -90,19 +94,25 @@ const PlayersTable:React.FC<PlayersTableProps> = ({ data }) => {
                 </div>
                 {
                     data.map((player:playerProps) => (
-                        <div className={`row grid py-2 border-l-8`} key={ player.id } style={ getPositionColor(player.area) }>
-                            <div className='text-left pl-4'>{ player.name }</div>
-                            <div className='text-center'>{ player.position }</div>
-                            <div className='text-center'>{ player.games }</div>
-                            <div className='text-center'>{ player.wins }</div>
-                            <div className='text-center'>{ player.draws }</div>
-                            <div className='text-center'>{ player.loses }</div>
-                            <div className='text-center'>{ player.goals }</div>
-                            <div className='text-center'>{ player.assists }</div>
-                            <div className='text-center'>{ player.clean_sheets }</div>
-                            <div className='text-center'>{ player.yellow_cards }</div>
-                            <div className='text-center'>{ player.red_cards }</div>
-                            <div className='text-center'>{ player.seasons }</div>
+                        <div className={`row relative overflow-hidden grid border-l-8 ${ player.sold ? 'opacity-25': 'opacity-1' }`} key={ player.id } style={ getPositionColor(player.area) }>
+                            { player.sold ? <span className='absolute -top-2 left-0 w-full text-center text-6xl font-bold'>SOLD</span> : '' }
+                            <div className='text-left'>
+                                <p className='relative overflow-hidden py-2 pl-4'>
+                                    { player.name }
+                                    { player.youth_player ? <><SchoolIcon className='opacity-25 absolute left-0 top-0 scale-[3]' /><span className='opacity-25 absolute right-0 top-0 text-6xl font-bold leading-[.7] tracking-[-.1em]'>{ player.potential }</span></> : '' }
+                                </p>
+                            </div>
+                            <div className='text-center py-2'>{ player.position }</div>
+                            <div className='text-center py-2'>{ player.games }</div>
+                            <div className='text-center py-2'>{ player.wins }</div>
+                            <div className='text-center py-2'>{ player.draws }</div>
+                            <div className='text-center py-2'>{ player.loses }</div>
+                            <div className='text-center py-2'>{ player.goals }</div>
+                            <div className='text-center py-2'>{ player.assists }</div>
+                            <div className='text-center py-2'>{ player.clean_sheets }</div>
+                            <div className='text-center py-2'>{ player.yellow_cards }</div>
+                            <div className='text-center py-2'>{ player.red_cards }</div>
+                            <div className='text-center py-2'>{ player.seasons }</div>
                         </div>                  
                     ))
                 }

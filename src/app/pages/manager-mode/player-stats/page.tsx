@@ -1,5 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import PlayersTable from "@/app/components/PlayersTable/PlayersTable";
+import GraphicPosition from "@/app/components/GraphicPosition/GraphicPosition";
 import './PlayerStats.css';
 
 const baseUrl:string = process.env.DATABASE_URL || '';
@@ -32,6 +33,7 @@ async function getData() {
 
 export default async function Page() {
     const data = await getData();
+
     const playerList:playerProps[] = data.map(player => ({
         id: player.id,
         name: player.name,
@@ -51,13 +53,15 @@ export default async function Page() {
         potential: player.potential,
         sold: player.sold
     }));
-    console.log(playerList);
+
+    const forwards:playerProps[] = playerList.filter(key => key.area === 'DEL' && !key.sold);
+    const midfielders:playerProps[] = playerList.filter(key => key.area === 'MED' && !key.sold);
+    const defenders:playerProps[] = playerList.filter(key => key.area === 'DEF' && !key.sold);
+    const goalkeepers:playerProps[] = playerList.filter(key => key.area === 'POR' && !key.sold);
 
     return(
         <div className="player-stats p-16 h-screen bg-gradient-to-r from-red-950 to-red-700 text-neutral-50 flex justify-between items-start gap-4">
-            <div className="field-positions">
-                <img src="../../soccer-field.png" alt="image field" title="soccer field" className="invert w-64" />
-            </div>
+            <GraphicPosition forwards={forwards} midfielders={midfielders} defenders={defenders} goalkeepers={goalkeepers} />
             <PlayersTable data={ playerList } />
         </div>
     )
